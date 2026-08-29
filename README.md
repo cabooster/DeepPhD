@@ -209,10 +209,3 @@ DeepPhD/
 
 [![IMAGE ALT TEXT](./images/supv4.png)](https://youtu.be/1bM43gqU6ik)
 
-
-## Data availability
-
-Behavioral and neuroethological source data related to the paper are archived on Zenodo (see the manuscript *Data availability* section), including:
-
-- Behavioral recordings: https://zenodo.org/records/14580256
-- Synchronized calcium + behavior: https://zenodo.org/records/14586426
