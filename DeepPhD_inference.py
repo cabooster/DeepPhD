@@ -6,7 +6,7 @@ import torch
 from torch.nn.parallel import DataParallel
 
 from data_loader.dataloader import testset
-from data_loader.qu_utils import test_preprocess_chooseOne_real
+from data_loader.dataloader_utils import test_preprocess_chooseOne_real
 from model.DeepPhD import DeepPhD
 from DeepPhD_train import Settings, init_params
 from utils.arg_parser import configure_gpus, find_checkpoint, resolve_logdir, test_parser

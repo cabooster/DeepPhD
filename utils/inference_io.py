@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 from data_loader.dataloader import FixedSizeGroupBatchSampler, testset
-from data_loader.qu_utils import multibatch_test_save, singlebatch_test_save, test_preprocess_chooseOne_real
+from data_loader.dataloader_utils import multibatch_test_save, singlebatch_test_save, test_preprocess_chooseOne_real
 
 
 def cast_output_image(output_img, input_data_type):

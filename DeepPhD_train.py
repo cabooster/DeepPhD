@@ -7,7 +7,7 @@ import time
 from torch.utils.data import DataLoader
 from torch.nn.parallel import DataParallel
 
-from data_loader.qu_utils import prepare_dataset
+from data_loader.dataloader_utils import prepare_dataset
 from data_loader.dataloader import trainset, FixedSizeGroupBatchSampler
 from tqdm import tqdm
 from utils.arg_parser import configure_gpus, resolve_logdir, train_parser
