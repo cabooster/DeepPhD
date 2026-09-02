@@ -8,37 +8,43 @@ from model.noise_model.noise_components import MPGNNormalization, FixPattern, RN
 class PhysicalModel(nn.Module):
     """Physical modeling module: normalizing flow over noise residuals (FPN, RN, MPGN)."""
 
-    def __init__(self, arch, mpgn_scale, FPN):
+    def __init__(self, noise_model, mpgn_scale, FPN):
         """
         Args:
-            arch: Pipe-separated layer names controlling which noise modules are active.
+            noise_model: Pipe-separated layer names controlling which noise modules are active.
             mpgn_scale: Learnable MPGNScale module.
             FPN: Learnable fixed-pattern noise module.
         """
         super(PhysicalModel, self).__init__()
-        self.arch = arch
+        self.noise_model = noise_model
         self.mpgn_scale = mpgn_scale
         self.FPN = FPN
-        self.normalizing_flow_arch()
+        self.build_normalizing_flow()
 
-    def normalizing_flow_arch(self):
-        """Instantiate flow layers according to ``self.arch`` tokens."""
-        arch_lyrs = [lyr.strip() for lyr in self.arch.lower().split('|') if lyr.strip()]
+    def build_normalizing_flow(self):
+        """Instantiate flow layers according to ``self.noise_model`` tokens."""
+        layers = [lyr.strip() for lyr in self.noise_model.lower().split('|') if lyr.strip()]
         self.use_FPN = False
         self.use_RN = False
         self.use_MPGN = False
-        if 'fpn' in arch_lyrs:
+        if 'fpn' in layers:
             print('|fpn')
             self.use_FPN = True
             self.module_FPN = FixPattern(fp=self.FPN)
-        if 'rn' in arch_lyrs:
+        if 'rn' in layers:
             print('|rn')
             self.use_RN = True
             self.module_rn = RN()
-        if 'mpgn' in arch_lyrs:
+        if 'mpgn' in layers:
             print('|mpgn')
             self.use_MPGN = True
             self.module_mpgn = MPGNNormalization(scale=self.mpgn_scale)
+        if not (self.use_FPN or self.use_RN or self.use_MPGN):
+            raise ValueError(
+                f"Invalid noise model: {self.noise_model!r}. "
+                "Expected at least one of: fpn, rn, mpgn "
+                "(e.g. 'fpn|rn|mpgn', 'fpn|mpgn', or 'mpgn')."
+            )
 
 
     def forward(self, n, x, patch_info, **kwargs):

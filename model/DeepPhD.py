@@ -14,11 +14,11 @@ class DeepPhD(nn.Module):
     row noise (RN), and mixed Poisson-Gaussian noise (MPGN) modeling.
     """
 
-    def __init__(self, x_shape, arch, param_inits, RN_loop, original_shape=None):
+    def __init__(self, x_shape, noise_model, param_inits, RN_loop, original_shape=None):
         """
         Args:
             x_shape: Spatial-temporal patch shape used by the network.
-            arch: Pipe-separated physical layers, e.g. ``fpn|rn|mpgn``.
+            noise_model: Pipe-separated noise layers, e.g. ``fpn|rn|mpgn``.
             param_inits: Dict with ``init_log_alpha`` and ``init_beta_raw``.
             RN_loop: Number of row-noise estimation / denoise iterations.
             original_shape: Full volume shape for the learnable FPN pattern.
@@ -32,12 +32,12 @@ class DeepPhD(nn.Module):
         self.FPN = FPN(original_shape)
         self.mpgn_scale = MPGNScale(param_inits)
         self.RN = RN()
-        self.physical_model = PhysicalModel(arch, self.mpgn_scale, self.FPN)
+        self.physical_model = PhysicalModel(noise_model, self.mpgn_scale, self.FPN)
 
         self.loop = RN_loop
-        arch_tokens = set(t.strip() for t in arch.lower().split('|') if t.strip())
-        self.use_RN = 'rn' in arch_tokens
-        self.use_FPN = 'fpn' in arch_tokens
+        noise_tokens = set(t.strip() for t in noise_model.lower().split('|') if t.strip())
+        self.use_RN = 'rn' in noise_tokens
+        self.use_FPN = 'fpn' in noise_tokens
 
     def denoise_loss(self, pred, target):
         """L1 + L2 reconstruction loss between prediction and target."""

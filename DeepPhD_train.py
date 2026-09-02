@@ -67,9 +67,9 @@ def main(args):
     """Train DeepPhD and run a final validation pass on the last epoch."""
     device_ids = configure_gpus(args.gpu)
 
-    arch_tokens = set(args.arch.split('|'))
-    use_rn = 'rn' in arch_tokens
-    use_fpn = 'fpn' in arch_tokens
+    noise_tokens = set(args.noise_model.split('|'))
+    use_rn = 'rn' in noise_tokens
+    use_fpn = 'fpn' in noise_tokens
 
     torch.random.manual_seed(args.seed)
     np.random.seed(args.seed)
@@ -111,7 +111,7 @@ def main(args):
 
     param_inits = init_params()
 
-    deepphd = DeepPhD(x_shape[1:], arch=args.arch, param_inits=param_inits, 
+    deepphd = DeepPhD(x_shape[1:], noise_model=args.noise_model, param_inits=param_inits,
     RN_loop = settings.RN_loop, original_shape=original_shape)
 
     optimizer = torch.optim.Adam([

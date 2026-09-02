@@ -7,7 +7,7 @@
 - [Overview](#overview)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Sensor / Architecture Presets](#sensor--architecture-presets)
+- [Noise model](#noise-model)
 - [Repository Layout](#repository-layout)
 - [Q&A](#qa)
 - [Results](#results)
@@ -15,27 +15,21 @@
 
 ## Overview
 
-Fluorescence microscopy is fundamentally limited by noise, which compromises imaging sensitivity and obscures biological phenomena. Noise originating from different optoelectronic sources exhibits distinct statistical properties; this heterogeneity poses critical challenges for reliable noise removal.
+Fluorescence microscopy is fundamentally limited by noise, which compromises imaging sensitivity and obscures biological phenomena. Noise originating from different optoelectronic sources exhibits distinct statistical properties. The heterogeneity of noise poses critical challenges for reliable noise removal.
 
 <p align="center">
   <img src="images/fig1a.png" alt="Figure 1a: Noise sources in fluorescence imaging" width="85%"/>
 </p>
 
+<<<<<<< HEAD
 **DeepPhD** (<ins>Deep</ins> <ins>Ph</ins>ysics-informed <ins>D</ins>enoising) is a **physics-informed, self-supervised** denoising framework that synergizes fluorescence image restoration with **explicit noise modeling**. By modeling heterogeneous noise components within a learnable normalizing flow and informing the restoration network with estimated noise parameters, DeepPhD reinforces noise decoupling and signal estimation **without requiring any clean images**.
+=======
+**DeepPhD** (deep physics-informed denoising) is a **physics-informed, self-supervised** denoising framework that synergizes fluorescence image restoration with noise physics. By explicitly modeling heterogeneous noise components within a learnable flow and informing the image restoration module of noise parameters, DeepPhD reinforces noise decoupling and signal estimation without requiring any clean images, thereby resolving fluorescence signals from severe noise and improving downstream quantitative analyses..
+>>>>>>> da1fad1 (0902)
 
 <p align="center">
   <img src="images/fig1c.png" alt="Figure 1c: DeepPhD framework overview" width="85%"/>
 </p>
-
-The measurement model covers the dominant noise sources in fluorescence imaging:
-
-| Component | Meaning |
-|-----------|---------|
-| **MPGN** | Mixed Poisson–Gaussian noise (shot + dark/readout) |
-| **FPN** | Fixed-pattern noise (time-invariant spatial offset) |
-| **RN** | Row noise (time-varying row-wise stripe) |
-
-Camera-based modalities (e.g., light-sheet, widefield CMOS) typically use the full model `fpn|rn|mpgn`. PMT-based multiphoton imaging reduces to `mpgn` only (FPN/RN constrained to zero).
 
 We demonstrate DeepPhD on diverse modalities and biological processes, including:
 
@@ -47,12 +41,12 @@ DeepPhD improves both denoising performance and interpretability, facilitating r
 
 ## Installation
 
-### Recommended environment
+### System requirements
 
 - Linux (recommended)
 - Python **3.10**
-- NVIDIA GPU + CUDA **12.x**
-- A recent **PyTorch** build that supports your GPU (choose the matching CUDA wheel from [pytorch.org](https://pytorch.org/get-started/locally/))
+- NVIDIA GPU with CUDA **12.x**
+- A recent **PyTorch** build compatible with your GPU (select the matching CUDA wheel on [pytorch.org](https://pytorch.org/get-started/locally/))
 
 ### Setup
 
@@ -63,20 +57,20 @@ conda create -n deepphd python=3.10 -y
 conda activate deepphd
 ```
 
-Install PyTorch for your CUDA / GPU first. Use the selector on [pytorch.org](https://pytorch.org/get-started/locally/) and pick a version compatible with your driver and GPU (newer cards such as RTX 5090 need a recent build with the matching architecture support). Example for CUDA 12.1:
+Install PyTorch first, matched to your CUDA version and GPU. Use the selector on [pytorch.org](https://pytorch.org/get-started/locally/) to choose a build compatible with your driver and hardware (newer GPUs such as the RTX 5090 require a recent build with the appropriate architecture support). Example for CUDA 12.8:
 
 ```bash
 pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 \
     --index-url https://download.pytorch.org/whl/cu128
 ```
 
-Then install the remaining packages:
+Install the remaining dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Verify the install:
+Verify the installation:
 
 ```bash
 python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
@@ -84,7 +78,7 @@ python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 
 ### Data format
 
-Place input volumes as multi-page **TIFF** stacks (`.tif`) under a folder, e.g.:
+Organize input volumes as multi-page **TIFF** stacks (`.tif`) in a single folder, for example:
 
 ```text
 your_dataset/
@@ -92,128 +86,127 @@ your_dataset/
   └── stack_002.tif
 ```
 
-Each TIFF should be shaped as `T × H × W` (time/depth × height × width). Short temporal sequences are automatically expanded for training when fewer than 400 frames are available.
+Each TIFF should have shape `T × H × W` (time or depth × height × width). Stacks with fewer than 400 frames are automatically extended to meet the minimum length required for training.
 
-**All stacks in the same directory must be acquired with the same imaging device (sensor),** so that shared physical noise parameters (e.g., FPN pattern and MPGN gain/variance) remain consistent within one training or inference run. Do not mix data from different cameras or microscopes in one folder.
+**All stacks in the same directory must come from the same imaging device (sensor),** so that shared physical noise parameters (e.g., the FPN pattern and MPGN gain/variance) stay consistent within a single training or inference run. Do not combine data from different cameras or microscopes in one folder.
 
 ## Quick Start
 
-### 1. Training
+### 1. Noise model
+
+Considering the dominant noise sources in fluorescence imaging, the overall noise model can be formulated as an additive combination of mixed Poisson–Gaussian noise (MPGN), fixed-pattern noise (FPN), and row noise (RN):
+
+| Component | Origin |
+|-----------|--------|
+| **MPGN** | Poissonian photon counting, thermally generated dark current, and electronic readout. |
+| **FPN** | Spatial nonuniformities in the pixel circuitry. |
+| **RN** | Nonuniformities in the row readout circuitry. |
+
+Please choose an appropriate noise model that matches how your data were acquired. The table below lists common recommendations:
+
+| Sensor | Typical modalities | Recommended `--noise_model` |
+|------------------|--------------------|-----------------------------|
+| Scanning detection （PMTs） | Two-photon microscopy, three-photon microscopy, *etc.* | `mpgn` |
+| Parallel camera-array detection （EMCCD） | TIRF, singlemolecule localization microscopy（SMLM）, *etc.* | `fpn\|mpgn` |
+| Row-serial camera-array detection （CMOS） | Light-sheet microscopy, widefield microscopy, *etc.* | `fpn\|rn\|mpgn` |
+
+### 2. Training
 
 ```bash
 python DeepPhD_train.py \
-  --exp_dir demo_zebrafish \
+  --exp_dir demo_lightsheet_zebrafish \
   --datasets_path /path/to/your_dataset \
-  --sensor_type CMOS \
+  --noise_model fpn|rn|mpgn \ # mpgn for multi-photon micsrscopy
   --save_noise
 ```
 
-By default, training uses GPUs `0,1`. Override with `--gpu` if needed (e.g. `--gpu 0` or `--gpu 0,1,2`).
+By default, training runs on GPUs 0 and 1. To use different devices, pass `--gpu` (e.g., `--gpu 0` or `--gpu 0,1,2`).
 
-Common arguments:
+Key arguments:
 
 | Argument | Description |
 |----------|-------------|
-| `--exp_dir` | Experiment name; logs and checkpoints are written to `results/<exp_dir>/` |
-| `--datasets_path` | Folder containing input `.tif` stacks |
-| `--sensor_type` | `CMOS` → `fpn\|rn\|mpgn` (default); `PMT` → `mpgn` |
-| `--arch` | Explicit physical flow, e.g. `fpn\|rn\|mpgn` or `mpgn` (overrides `--sensor_type`) |
-| `--gpu` | GPU id(s), comma-separated (default `0,1`) |
-| `--fresh_start` | Delete the existing experiment directory and train from scratch |
-| `--save_noise` | Save learned FPN / estimated RN maps during the final validation pass |
-| `--seed` | Random seed (default `0`) |
+| `--exp_dir` | Experiment name; logs and checkpoints are saved under `results/<exp_dir>/` |
+| `--datasets_path` | Directory containing input `.tif` stacks |
+| `--noise_model` | Pipe-separated noise model, e.g. `fpn\|rn\|mpgn`, `fpn\|mpgn`, or `mpgn` (default: `fpn\|rn\|mpgn`) |
+| `--gpu` | Comma-separated GPU IDs (default: `0,1`) |
+| `--fresh_start` | Remove the existing experiment directory and restart training from scratch |
+| `--save_noise` | During the final validation pass, save the learned FPN and estimated RN maps |
+| `--seed` | Random seed (default: `0`) |
 
-Checkpoints are saved as:
+Checkpoints are saved to:
 
 ```text
 results/<exp_dir>/saved_models/epoch_<N>.pth
 ```
 
-Denoised outputs (and optional noise maps) are written under `results/<exp_dir>/`.
+Denoised outputs (and optional noise maps) are saved under `results/<exp_dir>/`.
 
-### 2. Inference
+### 3. Inference
 
 ```bash
 python DeepPhD_inference.py \
-  --exp_dir demo_zebrafish \
+  --exp_dir demo_lightsheet_zebrafish \
   --datasets_path /path/to/your_dataset \
-  --sensor_type CMOS \
+  --noise_model fpn|rn|mpgn \
   --save_noise
 ```
 
 | Argument | Description |
 |----------|-------------|
-| `--exp_dir` | Experiment name or absolute path to the training log directory |
+| `--exp_dir` | Experiment name or absolute path to the training output directory |
 | `--epoch` | Checkpoint epoch to load (default: latest) |
-| `--arch` / `--sensor_type` | Must match the trained physical model |
-| `--datasets_path` | Folder of TIFF stacks to denoise |
-| `--gpu` | GPU id(s), comma-separated (default `0,1`) |
-| `--save_noise` | Export estimated RN / learned FPN maps |
-
-**Example (PMT / multiphoton):**
-
-```bash
-python DeepPhD_train.py \
-  --exp_dir demo_2p \
-  --datasets_path /path/to/pmt_data \
-  --sensor_type PMT
-```
-
-## Sensor / Architecture Presets
-
-| Preset | `--sensor_type` | Equivalent `--arch` | Typical use |
-|--------|-----------------|----------------------|-------------|
-| Camera (CMOS / sCMOS) | `CMOS` | `fpn\|rn\|mpgn` | Light-sheet, widefield, head-mounted CMOS |
-| Photomultiplier | `PMT` | `mpgn` | Multiphoton / scanning PMT |
-
-If both `--arch` and `--sensor_type` are provided, `--arch` takes precedence.
+| `--noise_model` | Must match the noise model used during training |
+| `--datasets_path` | Directory of TIFF stacks to denoise |
+| `--gpu` | Comma-separated GPU IDs (default: `0,1`) |
+| `--save_noise` | Export estimated RN and learned FPN maps |
 
 ## Repository Layout
 
 ```text
 DeepPhD/
-├── DeepPhD_train.py          # Training entry
-├── DeepPhD_inference.py      # Inference entry
-├── requirements.txt          # Pip pins for non-torch dependencies
+├── DeepPhD_train.py          # Training entry point
+├── DeepPhD_inference.py      # Inference entry point
+├── requirements.txt          # Pinned dependencies (excluding PyTorch)
 ├── model/
-│   ├── DeepPhD.py            # Joint physics + 3D U-Net model
+│   ├── DeepPhD.py            # Joint physics model and 3D U-Net
 │   ├── network/              # 3D U-Net denoiser
-│   └── noise_model/          # FPN / RN / MPGN normalizing-flow modules
-├── data_loader/              # Patch partitioning, augmentation, dataloaders
+│   └── noise_model/          # FPN, RN, and MPGN normalizing-flow modules
+├── data_loader/              # Patch extraction, augmentation, and dataloaders
 └── utils/
-    ├── arg_parser.py         # CLI, GPU visibility, checkpoint helpers
-    └── inference_io.py       # Patch-wise inference and TIFF export
+    ├── arg_parser.py         # CLI parsing, GPU setup, and checkpoint utilities
+    └── inference_io.py       # Patch-wise inference and TIFF I/O
 ```
 
 ## Q&A
 
-### Q1: How do I choose between CMOS and PMT presets?
+### Q1: How do I choose `--noise_model`?
 
-**A1:** Use `CMOS` (full `fpn|rn|mpgn`) for camera sensors that exhibit fixed-pattern and row noise. Use `PMT` (`mpgn` only) for multiphoton / scanning detection where all pixels share one photoconversion and readout channel.
+**A1:** Match the noise components of your sensor. Use `mpgn` for PMT-based scanning detection (e.g., multiphoton, laser-scanning confocal). Use `fpn|mpgn` for EMCCD with parallel camera-array readout (e.g., TIRF). Use `fpn|rn|mpgn` for sCMOS with row-serial camera-array readout (e.g., light-sheet, widefield). See [Noise model](#noise-model) for details.
 
-### Q2: Training resumes from an old run unexpectedly.
+### Q2: Why does training resume from a previous run?
 
-**A2:** By default, if `results/<exp_dir>/saved_models/` already contains checkpoints, training continues from the latest epoch. Pass `--fresh_start` to clear the experiment directory and start over.
+**A2:** If `results/<exp_dir>/saved_models/` already contains checkpoints, training resumes from the latest epoch by default. Pass `--fresh_start` to remove the experiment directory and begin a new run.
 
-### Q3: Multi-GPU training / inference.
+### Q3: How do I run training or inference on multiple GPUs?
 
-**A3:** Default is `--gpu 0,1`. Pass other comma-separated device ids as needed (e.g. `--gpu 0` or `--gpu 0,1,2`). Visibility is set via `CUDA_VISIBLE_DEVICES` before CUDA initialization.
+**A3:** The default is `--gpu 0,1`. Specify a comma-separated list of device IDs as needed (e.g., `--gpu 0` or `--gpu 0,1,2`). GPU visibility is configured through `CUDA_VISIBLE_DEVICES` before CUDA initializes.
 
 ### Q4: Can I mix stacks from different microscopes in one folder?
 
-**A4:** No. Keep only data from the same imaging device in each `--datasets_path` directory, because DeepPhD learns a shared physical noise model (including FPN) per run.
+**A4:** No. Each `--datasets_path` directory should contain data from the same imaging instrument, because DeepPhD learns one shared physical noise model (including FPN) per run.
 
 ## Results
 
-1. DeepPhD enables ultrasensitive light-sheet imaging of GABAergic neurons in larval zebrafish.
+1. Ultrasensitive light-sheet imaging of GABAergic neurons in larval zebrafish with DeepPhD.
 
-[![IMAGE ALT TEXT](./images/supv2.png)](https://youtu.be/9wG65MiFMAs)
+[![Light-sheet imaging of GABAergic neurons in larval zebrafish](./images/supv2.png)](https://youtu.be/9wG65MiFMAs)
 
-2. DeepPhD enables high-fidelity neural recording of freely behaving mice using head-mounted miniaturized microscopy.
+2. High-fidelity neural recordings from freely behaving mice with head-mounted miniaturized microscopy.
 
-[![IMAGE ALT TEXT](./images/supv3.png)](https://youtu.be/Yn_954OcvZI)
+[![Neural recording in freely behaving mice](./images/supv3.png)](https://youtu.be/Yn_954OcvZI)
 
-3. DeepPhD reveals calcium transients of dendritic spines in the mouse cortex.
+3. Calcium transients in dendritic spines revealed in the mouse cortex.
 
-[![IMAGE ALT TEXT](./images/supv4.png)](https://youtu.be/1bM43gqU6ik)
+[![Calcium transients in dendritic spines](./images/supv4.png)](https://youtu.be/1bM43gqU6ik)
 

@@ -32,9 +32,9 @@ def main(args):
     """Build the model from ``args``, load the checkpoint, and run inference."""
     device_ids = configure_gpus(args.gpu)
 
-    arch_tokens = set(args.arch.split('|'))
-    use_rn = 'rn' in arch_tokens
-    use_fpn = 'fpn' in arch_tokens
+    noise_tokens = set(args.noise_model.split('|'))
+    use_rn = 'rn' in noise_tokens
+    use_fpn = 'fpn' in noise_tokens
 
     torch.random.manual_seed(args.seed)
     np.random.seed(args.seed)
@@ -63,7 +63,7 @@ def main(args):
 
     deepphd = DeepPhD(
         x_shape,
-        arch=args.arch,
+        noise_model=args.noise_model,
         param_inits=init_params(),
         RN_loop=settings.RN_loop,
         original_shape=original_shape,

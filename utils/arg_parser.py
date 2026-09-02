@@ -1,56 +1,6 @@
 """CLI argument parsers and helpers for DeepPhD train / inference."""
 import argparse
 import os
-import warnings
-
-
-SENSOR_TYPE_TO_ARCH = {
-    'CMOS': 'fpn|rn|mpgn',
-    'PMT': 'mpgn',
-}
-
-
-def normalize_arch(arch):
-    """Lowercase and strip arch tokens (e.g. fpn|rn|mpgn)."""
-    tokens = []
-    for token in arch.lower().split('|'):
-        token = token.strip()
-        if token:
-            tokens.append(token)
-    return '|'.join(tokens)
-
-
-def resolve_arch(arch=None, sensor_type=None):
-    """
-    Resolve physical-modeling arch from --arch and/or --sensor_type.
-
-    Priority: explicit arch wins. Default sensor is CMOS → fpn|rn|mpgn.
-    If both are provided, warn and follow arch.
-    """
-    if arch is not None and sensor_type is not None:
-        warnings.warn(
-            "Both --arch and --sensor_type were provided; using --arch and ignoring --sensor_type.",
-            UserWarning,
-            stacklevel=2,
-        )
-        return normalize_arch(arch)
-
-    if arch is not None:
-        return normalize_arch(arch)
-
-    sensor_key = (sensor_type or 'CMOS').upper()
-    if sensor_key not in SENSOR_TYPE_TO_ARCH:
-        raise ValueError(
-            f"Unsupported sensor_type={sensor_type!r}. "
-            f"Expected one of {sorted(SENSOR_TYPE_TO_ARCH)}."
-        )
-    return SENSOR_TYPE_TO_ARCH[sensor_key]
-
-
-def _finalize_model_args(args):
-    sensor_type = args.sensor_type.upper() if args.sensor_type is not None else None
-    args.arch = resolve_arch(arch=args.arch, sensor_type=sensor_type)
-    return args
 
 
 def configure_gpus(gpu):
@@ -114,11 +64,8 @@ def train_parser():
         '--gpu', type=str, default='0,1',
         help='GPU device id(s), comma-separated, e.g. 0 or 0,1 (default: 0,1)')
     parser.add_argument(
-        "--arch", type=str, default=None,
-        help="Physical modeling flow in lowercase, e.g. fpn|rn|mpgn. Overrides --sensor_type.")
-    parser.add_argument(
-        "--sensor_type", type=str, default=None,
-        help="Sensor preset: CMOS → fpn|rn|mpgn, PMT → mpgn. Default CMOS when --arch is omitted.")
+        "--noise_model", type=str, default='fpn|rn|mpgn',
+        help="Choose an appropriate noise model that matches how your data were acquired, e.g. fpn|rn|mpgn for light-sheet and widefield microscopy. mpgn for multiphoton microscopy. fpn|mpgn for SMLM. fpn|mpgn for TIRF microscopy.")
     parser.add_argument('--datasets_path', type=str, default=None,
                         help="Path to dataset; defaults to Settings.datasets_path if not set")
     parser.add_argument(
@@ -127,7 +74,7 @@ def train_parser():
     parser.add_argument(
         '--save_noise', action='store_true',
         help="Save learned FPN and estimated RN maps during validation")
-    return _finalize_model_args(parser.parse_args())
+    return parser.parse_args()
 
 
 def test_parser():
@@ -142,14 +89,11 @@ def test_parser():
         '--gpu', type=str, default='0,1',
         help='GPU device id(s), comma-separated, e.g. 0 or 0,1 (default: 0,1)')
     parser.add_argument(
-        "--arch", type=str, default=None,
-        help="Physical modeling flow in lowercase, e.g. fpn|rn|mpgn. Overrides --sensor_type.")
-    parser.add_argument(
-        "--sensor_type", type=str, default=None,
-        help="Sensor preset: CMOS → fpn|rn|mpgn, PMT → mpgn. Default CMOS when --arch is omitted.")
+        "--noise_model", type=str, default='fpn|rn|mpgn',
+        help="Choose an appropriate noise model that matches how your data were acquired, e.g. fpn|rn|mpgn for light-sheet, widefield, etc. mpgn for multiphoton microscopy. fpn|mpgn for SMLM. fpn|mpgn for TIRF microscopy.")
     parser.add_argument('--datasets_path', type=str, default=None,
                         help="Path to dataset; defaults to Settings.datasets_path if not set")
     parser.add_argument(
         '--save_noise', action='store_true',
         help="Save learned FPN and estimated RN maps")
-    return _finalize_model_args(parser.parse_args())
+    return parser.parse_args()
