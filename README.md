@@ -83,8 +83,8 @@ Considering the dominant noise sources in fluorescence imaging, the overall nois
 | Component | Origin |
 |-----------|--------|
 | **MPGN** | Poissonian photon counting, thermally generated dark current, and electronic readout. |
-| **FPN** | Spatial nonuniformities in the pixel circuitry. |
-| **RN** | Nonuniformities in the row readout circuitry. |
+| **FPN** | Nonuniformities in the pixel circuitry. |
+| **RN** | Nonuniformities in the row circuitry. |
 
 Please choose an appropriate noise model that matches how your data were acquired. The table below lists common recommendations:
 
