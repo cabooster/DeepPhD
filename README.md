@@ -60,12 +60,6 @@ Install the remaining dependencies:
 pip install -r requirements.txt
 ```
 
-Verify the installation:
-
-```bash
-python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
-```
-
 ### Data format
 
 Organize input volumes as multi-page **TIFF** stacks (`.tif`) in a single folder, for example:
@@ -167,24 +161,6 @@ DeepPhD/
     ├── arg_parser.py         # CLI parsing, GPU setup, and checkpoint utilities
     └── inference_io.py       # Patch-wise inference and TIFF I/O
 ```
-
-## Q&A
-
-### Q1: How do I choose `--noise_model`?
-
-**A1:** Match the noise components of your sensor. Use `mpgn` for PMT-based scanning detection (e.g., multiphoton, laser-scanning confocal). Use `fpn|mpgn` for EMCCD with parallel camera-array readout (e.g., TIRF). Use `fpn|rn|mpgn` for sCMOS with row-serial camera-array readout (e.g., light-sheet, widefield). See [Noise model](#noise-model) for details.
-
-### Q2: Why does training resume from a previous run?
-
-**A2:** If `results/<exp_dir>/saved_models/` already contains checkpoints, training resumes from the latest epoch by default. Pass `--fresh_start` to remove the experiment directory and begin a new run.
-
-### Q3: How do I run training or inference on multiple GPUs?
-
-**A3:** The default is `--gpu 0,1`. Specify a comma-separated list of device IDs as needed (e.g., `--gpu 0` or `--gpu 0,1,2`). GPU visibility is configured through `CUDA_VISIBLE_DEVICES` before CUDA initializes.
-
-### Q4: Can I mix stacks from different microscopes in one folder?
-
-**A4:** No. Each `--datasets_path` directory should contain data from the same imaging instrument, because DeepPhD learns one shared physical noise model (including FPN) per run.
 
 ## Results
 
