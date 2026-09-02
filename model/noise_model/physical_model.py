@@ -11,7 +11,7 @@ class PhysicalModel(nn.Module):
     def __init__(self, noise_model, mpgn_scale, FPN):
         """
         Args:
-            noise_model: Pipe-separated layer names controlling which noise modules are active.
+            noise_model: Flow layers to enable, e.g. ``fpn|rn|mpgn``.
             mpgn_scale: Learnable MPGNScale module.
             FPN: Learnable fixed-pattern noise module.
         """
@@ -22,27 +22,27 @@ class PhysicalModel(nn.Module):
         self.build_normalizing_flow()
 
     def build_normalizing_flow(self):
-        """Instantiate flow layers according to ``self.noise_model`` tokens."""
-        layers = [lyr.strip() for lyr in self.noise_model.lower().split('|') if lyr.strip()]
+        """Instantiate modules for the flow layers listed in ``self.noise_model``."""
+        flow_layers = [lyr.strip() for lyr in self.noise_model.lower().split('|') if lyr.strip()]
         self.use_FPN = False
         self.use_RN = False
         self.use_MPGN = False
-        if 'fpn' in layers:
+        if 'fpn' in flow_layers:
             print('|fpn')
             self.use_FPN = True
             self.module_FPN = FixPattern(fp=self.FPN)
-        if 'rn' in layers:
+        if 'rn' in flow_layers:
             print('|rn')
             self.use_RN = True
             self.module_rn = RN()
-        if 'mpgn' in layers:
+        if 'mpgn' in flow_layers:
             print('|mpgn')
             self.use_MPGN = True
             self.module_mpgn = MPGNNormalization(scale=self.mpgn_scale)
         if not (self.use_FPN or self.use_RN or self.use_MPGN):
             raise ValueError(
                 f"Invalid noise model: {self.noise_model!r}. "
-                "Expected at least one of: fpn, rn, mpgn "
+                "Expected at least one flow layer among: fpn, rn, mpgn "
                 "(e.g. 'fpn|rn|mpgn', 'fpn|mpgn', or 'mpgn')."
             )
 

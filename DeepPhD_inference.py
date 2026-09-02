@@ -32,9 +32,9 @@ def main(args):
     """Build the model from ``args``, load the checkpoint, and run inference."""
     device_ids = configure_gpus(args.gpu)
 
-    noise_tokens = set(args.noise_model.split('|'))
-    use_rn = 'rn' in noise_tokens
-    use_fpn = 'fpn' in noise_tokens
+    flow_layers = set(args.noise_model.split('|'))
+    use_rn = 'rn' in flow_layers
+    use_fpn = 'fpn' in flow_layers
 
     torch.random.manual_seed(args.seed)
     np.random.seed(args.seed)

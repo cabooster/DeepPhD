@@ -18,7 +18,7 @@ class DeepPhD(nn.Module):
         """
         Args:
             x_shape: Spatial-temporal patch shape used by the network.
-            noise_model: Pipe-separated noise layers, e.g. ``fpn|rn|mpgn``.
+            noise_model: Flow layers to enable, e.g. ``fpn|rn|mpgn``.
             param_inits: Dict with ``init_log_alpha`` and ``init_beta_raw``.
             RN_loop: Number of row-noise estimation / denoise iterations.
             original_shape: Full volume shape for the learnable FPN pattern.
@@ -35,9 +35,9 @@ class DeepPhD(nn.Module):
         self.physical_model = PhysicalModel(noise_model, self.mpgn_scale, self.FPN)
 
         self.loop = RN_loop
-        noise_tokens = set(t.strip() for t in noise_model.lower().split('|') if t.strip())
-        self.use_RN = 'rn' in noise_tokens
-        self.use_FPN = 'fpn' in noise_tokens
+        flow_layers = set(t.strip() for t in noise_model.lower().split('|') if t.strip())
+        self.use_RN = 'rn' in flow_layers
+        self.use_FPN = 'fpn' in flow_layers
 
     def denoise_loss(self, pred, target):
         """L1 + L2 reconstruction loss between prediction and target."""
