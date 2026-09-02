@@ -112,7 +112,7 @@ Key arguments:
 |----------|-------------|
 | `--exp_dir` | Experiment name; logs and checkpoints are saved under `results/<exp_dir>/` |
 | `--datasets_path` | Directory containing input `.tif` stacks |
-| `--noise_model` | Pipe-separated noise model, e.g. `fpn\|rn\|mpgn`, `fpn\|mpgn`, or `mpgn` (default: `fpn\|rn\|mpgn`) |
+| `--noise_model` | The appropriate noise model that matches how your data were acquired. e.g. `fpn\|rn\|mpgn`, `fpn\|mpgn`, or `mpgn` (default: `fpn\|rn\|mpgn`) |
 | `--gpu` | Comma-separated GPU IDs (default: `0,1`) |
 | `--fresh_start` | Remove the existing experiment directory and restart training from scratch |
 | `--save_noise` | During the final validation pass, save the learned FPN and estimated RN maps |

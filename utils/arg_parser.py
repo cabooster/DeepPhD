@@ -65,7 +65,7 @@ def train_parser():
         help='GPU device id(s), comma-separated, e.g. 0 or 0,1 (default: 0,1)')
     parser.add_argument(
         "--noise_model", type=str, default='fpn|rn|mpgn',
-        help="Choose an appropriate noise model that matches how your data were acquired, e.g. fpn|rn|mpgn for light-sheet and widefield microscopy. mpgn for multiphoton microscopy. fpn|mpgn for SMLM. fpn|mpgn for TIRF microscopy.")
+        help="Choose an appropriate noise model that matches how your data were acquired, e.g. fpn|rn|mpgn for light-sheet and widefield microscopy. mpgn for multiphoton microscopy. fpn|mpgn for SMLM.")
     parser.add_argument('--datasets_path', type=str, default=None,
                         help="Path to dataset; defaults to Settings.datasets_path if not set")
     parser.add_argument(
@@ -90,7 +90,7 @@ def test_parser():
         help='GPU device id(s), comma-separated, e.g. 0 or 0,1 (default: 0,1)')
     parser.add_argument(
         "--noise_model", type=str, default='fpn|rn|mpgn',
-        help="Choose an appropriate noise model that matches how your data were acquired, e.g. fpn|rn|mpgn for light-sheet, widefield, etc. mpgn for multiphoton microscopy. fpn|mpgn for SMLM. fpn|mpgn for TIRF microscopy.")
+        help="Choose an appropriate noise model that matches how your data were acquired, e.g. fpn|rn|mpgn for light-sheet and widefield microscopy. mpgn for multiphoton microscopy. fpn|mpgn for SMLM.")
     parser.add_argument('--datasets_path', type=str, default=None,
                         help="Path to dataset; defaults to Settings.datasets_path if not set")
     parser.add_argument(
