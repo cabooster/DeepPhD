@@ -78,7 +78,7 @@ Each TIFF should have shape `T × H × W` (time or depth × height × width). St
 
 Considering the dominant noise sources in fluorescence imaging, the overall noise model can be formulated as an additive combination of mixed Poisson–Gaussian noise (MPGN), fixed-pattern noise (FPN), and row noise (RN):
 
-| Component | Origin |
+| Component | Description |
 |-----------|--------|
 | **MPGN** | Poissonian photon counting, thermally generated dark current, and electronic readout. |
 | **FPN** | Nonuniformities in the pixel circuitry. |
@@ -86,11 +86,11 @@ Considering the dominant noise sources in fluorescence imaging, the overall nois
 
 Please choose an appropriate noise model that matches how your data were acquired. The table below lists common recommendations:
 
-| Sensor | Typical modalities | Recommended `--noise_model` |
+| Detector | Typical modalities | Recommended `--noise_model` |
 |------------------|--------------------|-----------------------------|
-| Scanning detection （PMTs） | Two-photon microscopy, three-photon microscopy, *etc.* | `mpgn` |
-| Parallel camera-array detection （EMCCD） | TIRF, singlemolecule localization microscopy（SMLM）, *etc.* | `fpn\|mpgn` |
-| Row-serial camera-array detection （CMOS） | Light-sheet microscopy, widefield microscopy, *etc.* | `fpn\|rn\|mpgn` |
+| Photomultiplier tubes (PMTs) | Two-photon microscopy, three-photon microscopy, *etc.* | `mpgn` |
+| CCD/EMCCD camera | TIRF, singlemolecule localization microscopy（SMLM）, *etc.* | `fpn\|mpgn` |
+| CMOS camera | Light-sheet microscopy, widefield microscopy, *etc.* | `fpn\|rn\|mpgn` |
 
 ### 2. Training
 
@@ -98,7 +98,7 @@ Please choose an appropriate noise model that matches how your data were acquire
 python DeepPhD_train.py \
   --exp_dir demo_lightsheet_zebrafish \
   --datasets_path /path/to/your_dataset \
-  --noise_model fpn|rn|mpgn \ # mpgn for multi-photon micsrscopy
+  --noise_model fpn|rn|mpgn \ 
   --save_noise
 ```
 
