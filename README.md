@@ -7,11 +7,9 @@
 - [Overview](#overview)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Noise model](#noise-model)
 - [Repository Layout](#repository-layout)
-- [Q&A](#qa)
 - [Results](#results)
-- [Citation](#citation)
+
 
 ## Overview
 
