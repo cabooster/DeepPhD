@@ -28,10 +28,8 @@ Fluorescence microscopy is fundamentally limited by noise, which compromises ima
 We demonstrate the superiority of DeepPhD on various imaging modalities and biological processes, including **light-sheet imaging of GABAergic neurons in larval zebrafish**, **widefield neural imaging of freely behaving mice**, and **multiphoton imaging of immune cell migration**. DeepPhD extends the performance and interpretability of fluorescence image denoising and facilitates reliable biological observation under photon-limited conditions.
 
 
-## Repository Layout
-
 <details>
-<summary>Show directory tree</summary>
+<summary><h2>Repository Layout</h2></summary>
 
 ```text
 DeepPhD/
