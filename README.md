@@ -112,7 +112,7 @@ Please choose an appropriate noise model that matches how your data were acquire
 |------------------|--------------------|-----------------------------|
 | Photomultiplier tubes (PMTs) | Two-photon microscopy, three-photon microscopy, *etc.* | `mpgn` |
 | CCD/EMCCD camera | TIRF, singlemolecule localization microscopy（SMLM）, *etc.* | `fpn\|mpgn` |
-| CMOS camera | Light-sheet microscopy, widefield microscopy, *etc.* | `fpn\|rn\|mpgn` |
+| CMOS/sCMOS camera | Light-sheet microscopy, widefield microscopy, *etc.* | `fpn\|rn\|mpgn` |
 
 ### 2. Training
 
