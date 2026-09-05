@@ -27,6 +27,30 @@ Fluorescence microscopy is fundamentally limited by noise, which compromises ima
 
 We demonstrate the superiority of DeepPhD on various imaging modalities and biological processes, including **light-sheet imaging of GABAergic neurons in larval zebrafish**, **widefield neural imaging of freely behaving mice**, and **multiphoton imaging of immune cell migration**. DeepPhD extends the performance and interpretability of fluorescence image denoising and facilitates reliable biological observation under photon-limited conditions.
 
+
+## Repository Layout
+
+<details>
+<summary>Show directory tree</summary>
+
+```text
+DeepPhD/
+├── DeepPhD_train.py          # Training entry point
+├── DeepPhD_inference.py      # Inference entry point
+├── requirements.txt          # Pinned dependencies (excluding PyTorch)
+├── model/
+│   ├── DeepPhD.py            # Joint physics model and 3D U-Net
+│   ├── network/              # 3D U-Net denoiser
+│   └── noise_model/          # FPN, RN, and MPGN modules
+├── data_loader/              # Patch extraction, augmentation, and dataloaders
+└── utils/
+    ├── arg_parser.py         # CLI parsing, GPU setup, and checkpoint utilities
+    └── inference_io.py       # Patch-wise inference and TIFF I/O
+```
+
+</details>
+
+
 ## Installation
 
 ### System requirements
@@ -143,34 +167,18 @@ python DeepPhD_inference.py \
 | `--gpu` | Comma-separated GPU IDs (default: `0,1`) |
 | `--save_noise` | Export estimated RN and learned FPN maps |
 
-## Repository Layout
-
-```text
-DeepPhD/
-├── DeepPhD_train.py          # Training entry point
-├── DeepPhD_inference.py      # Inference entry point
-├── requirements.txt          # Pinned dependencies (excluding PyTorch)
-├── model/
-│   ├── DeepPhD.py            # Joint physics model and 3D U-Net
-│   ├── network/              # 3D U-Net denoiser
-│   └── noise_model/          # FPN, RN, and MPGN normalizing-flow modules
-├── data_loader/              # Patch extraction, augmentation, and dataloaders
-└── utils/
-    ├── arg_parser.py         # CLI parsing, GPU setup, and checkpoint utilities
-    └── inference_io.py       # Patch-wise inference and TIFF I/O
-```
 
 ## Results
 
-1. Ultrasensitive light-sheet imaging of GABAergic neurons in larval zebrafish with DeepPhD.
+1. **Ultrasensitive light-sheet imaging of GABAergic neurons in larval zebrafish with DeepPhD.**
 
 [![Light-sheet imaging of GABAergic neurons in larval zebrafish](./images/supv2.png)](https://youtu.be/9wG65MiFMAs)
 
-2. High-fidelity neural recordings from freely behaving mice with head-mounted miniaturized microscopy.
+2. **High-fidelity neural recordings from freely behaving mice with head-mounted miniaturized microscopy.**
 
 [![Neural recording in freely behaving mice](./images/supv3.png)](https://youtu.be/Yn_954OcvZI)
 
-3. Calcium transients in dendritic spines revealed in the mouse cortex.
+3. **Calcium transients in dendritic spines revealed in the mouse cortex.**
 
 [![Calcium transients in dendritic spines](./images/supv4.png)](https://youtu.be/1bM43gqU6ik)
 
