@@ -5,9 +5,9 @@
 ## Contents
 
 - [Overview](#overview)
+- [Repository Layout](#repository-layout)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Repository Layout](#repository-layout)
 - [Results](#results)
 
 
