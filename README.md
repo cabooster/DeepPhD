@@ -16,7 +16,7 @@
 Fluorescence microscopy is fundamentally limited by noise, which compromises imaging sensitivity and obscures biological phenomena. Noise originating from different optoelectronic sources exhibits distinct statistical properties. The heterogeneity of noise poses critical challenges for reliable noise removal.
 
 <p align="center">
-  <img src="images/fig1a.png" alt="Figure 1a: Noise sources in fluorescence imaging" width="85%"/>
+  <img src="images/fig1c.png" alt="Figure 1a: Noise sources in fluorescence imaging" width="85%"/>
 </p>
 
 **DeepPhD** (deep physics-informed denoising) is a **physics-informed, self-supervised** denoising framework that synergizes fluorescence image restoration with noise physics. By explicitly modeling heterogeneous noise components within a learnable flow and informing the image restoration module of noise parameters, DeepPhD reinforces noise decoupling and signal estimation without requiring any clean images, thereby resolving fluorescence signals from severe noise and improving downstream quantitative analyses.
