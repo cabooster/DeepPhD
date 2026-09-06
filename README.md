@@ -109,7 +109,7 @@ Considering the noise sources in fluorescence imaging, the overall noise model c
 | **FPN** | Pixel-wise nonuniformity, modeled as a time-invariant 2D pattern. |
 | **RN** | Row-wise nonuniformity, modeled as time-varying stripe noise, with all pixels in each row sharing the same value. |
 
-Please choose an appropriate noise model that matches how your data were acquired. The table below lists common recommendations:
+Please choose the best noise configuration that matches your data. The table below lists our recommendations:
 
 | Detector | Typical modalities | Recommended `--noise_model` |
 |------------------|--------------------|:-----------------------------:|
