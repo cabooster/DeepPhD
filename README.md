@@ -51,14 +51,14 @@ DeepPhD/
 
 ## Installation
 
-### System requirements
+### System environment
 
 - Linux (recommended)
 - Python **3.10**
 - NVIDIA GPU with CUDA **12.x**
 - A recent **PyTorch** build compatible with your GPU (select the matching CUDA wheel on [pytorch.org](https://pytorch.org/get-started/locally/))
 
-### Setup
+### Environment configuration
 
 ```bash
 git clone https://github.com/cabooster/DeepPhD.git
@@ -74,7 +74,7 @@ pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 \
     --index-url https://download.pytorch.org/whl/cu128
 ```
 
-Install the remaining dependencies:
+Install the other dependencies:
 
 ```bash
 pip install -r requirements.txt
