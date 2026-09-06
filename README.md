@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 ### Data format
 
-Organize the input image stacks as multi-page **TIFF** stacks (`.tif`) in a single folder, for example:
+Organize input image stacks as multi-page **TIFF** stacks (`.tif`) in a single folder, for example:
 
 ```text
 your_dataset/
