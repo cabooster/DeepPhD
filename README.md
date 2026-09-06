@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 ### Data format
 
-Organize input volumes as multi-page **TIFF** stacks (`.tif`) in a single folder, for example:
+Organize the input image stacks as multi-page **TIFF** stacks (`.tif`) in a single folder, for example:
 
 ```text
 your_dataset/
@@ -112,7 +112,7 @@ Considering the dominant noise sources in fluorescence imaging, the overall nois
 Please choose an appropriate noise model that matches how your data were acquired. The table below lists common recommendations:
 
 | Detector | Typical modalities | Recommended `--noise_model` |
-|------------------|--------------------|-----------------------------|
+|------------------|--------------------|:-----------------------------:|
 | CMOS/sCMOS camera | Light-sheet microscopy, widefield microscopy, light-field microscopy, *etc.* | `fpn\|rn\|mpgn` |
 | CCD/EMCCD camera | Singlemolecule localization microscopy（SMLM）, *etc.* | `fpn\|mpgn` |
 | Photomultiplier tube (PMT) | Two-photon microscopy, three-photon microscopy, *etc.* | `mpgn` |
