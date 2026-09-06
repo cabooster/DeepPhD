@@ -1,8 +1,14 @@
 # DeepPhD: Physics-informed self-supervised denoising for fluorescence imaging
 
-<div align="center" style="background-color:#eeeeee; padding:30px; border-radius:10px;">
-  <img src="https://raw.githubusercontent.com/cabooster/DeepPhD/master/images/DeepPhD_Logo-v4.png" width="700">
-</div>
+<table>
+<tr>
+<td align="center" bgcolor="#f2f2f2">
+
+<img src="https://raw.githubusercontent.com/cabooster/DeepPhD/master/images/DeepPhD_Logo-v4.png" width="700">
+
+</td>
+</tr>
+</table>
 
 ### [Project page](https://cabooster.github.io/DeepPhD/) | [Paper](https://cabooster.github.io/DeepPhD/)
 
