@@ -138,7 +138,7 @@ By default, training runs on GPUs 0 and 1. To use different GPUs, specify them w
 | `--datasets_path` | Directory containing input `.tif` stacks. |
 | `--noise_model` | Noise configuration that best matches your data. e.g., `fpn\|rn\|mpgn`, `fpn\|mpgn`, or `mpgn` (default: `fpn\|rn\|mpgn`). |
 | `--gpu` | Comma-separated GPU IDs (default: `0,1`). |
-| `--fresh_start` | Remove the existing output root directory and restart training from scratch. |
+| `--fresh_start` | Restart training from scratch. |
 | `--save_noise` | During the final validation pass, save the learned FPN and RN patterns. |
 | `--seed` | Random seed (default: `0`). |
 
@@ -163,8 +163,8 @@ python DeepPhD_inference.py \
 | Argument | Description |
 |----------|-------------|
 | `--exp_dir` | Output root directory. |
-| `--epoch` | Checkpoint epoch to load (default: the latest one). |
-| `--noise_model` | Noise configuration for inference. Must match the noise model used during training. |
+| `--epoch` | Determine which checkpoint to load (default: the latest epoch). |
+| `--noise_model` | Noise configuration for inference. Must match the noise configuration used during training. |
 | `--datasets_path` | Directory of TIFF stacks to denoise. |
 | `--gpu` | Comma-separated GPU IDs (default: `0,1`). |
 | `--save_noise` | Export estimated RN and learned FPN maps. |
