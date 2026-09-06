@@ -7,10 +7,11 @@ title: Datasets
 <!-- PAPER_URL_PLACEHOLDER: replace with the final paper URL after publication. -->
 
 <p>
-All publicly available datasets used in DeepPhD are provided through Zenodo records.
+All data used for training and validation of DeepCAD-RT are made publicly available here.
 The released datasets include synthetic volumetric fluorescence imaging data and
 experimentally acquired light-sheet, widefield, and two-photon microscopy datasets
-covering subcellular structures, neuronal structures and activity, calcium dynamics, and cell migration.
+covering subcellular structures, neuronal structures and activity, calcium dynamics, and cell migration. 
+All data are listed in the table below and we have no restriction on data availability. You can download these data by clicking the DOI hyperlinks appended in the ‘Title’ column. We recommend using ImageJ/Fiji to open and view these files.
 </p>
 
 <div class="table-scroll" role="region" aria-label="DeepPhD datasets" tabindex="0">
