@@ -17,7 +17,9 @@ We recommend using ImageJ/Fiji to open and view these files.
 </p>
 
 <div class="table-scroll" role="region" aria-label="DeepPhD datasets" tabindex="0">
+
 <table>
+
 <thead>
 <tr>
 <th>No.</th>
@@ -31,7 +33,9 @@ We recommend using ImageJ/Fiji to open and view these files.
 </tr>
 </thead>
 
+
 <tbody>
+
 
 <tr>
 <td>1</td>
@@ -68,6 +72,7 @@ GT and multiple noise configurations
 </tr>
 
 
+
 <tr>
 <td>2</td>
 
@@ -77,16 +82,20 @@ GABAergic neuron population<br>
 </td>
 
 <td>
-Neuronal structure<br>
+Neuronal structure
+<hr>
 Calcium dynamics
 </td>
 
 <td>
-1.29 μm<br>
-0.16 μm
+1.29 μm/pixel
+<hr>
+0.16 μm/pixel
 </td>
 
 <td>
+--
+<hr>
 5 Hz
 </td>
 
@@ -105,6 +114,7 @@ Neuronal structure and calcium imaging
 </tr>
 
 
+
 <tr>
 <td>3</td>
 
@@ -114,16 +124,18 @@ Neuroethological recordings of freely behaving mice<br>
 </td>
 
 <td>
-Neural activity<br>
+Neural activity
+<hr>
 Behavior
 </td>
 
 <td>
-4 μm
+4 μm/pixel
 </td>
 
 <td>
-30 Hz<br>
+30 Hz
+<hr>
 9 Hz
 </td>
 
@@ -142,6 +154,7 @@ Simultaneous neural and behavioral recordings
 </tr>
 
 
+
 <tr>
 <td>4</td>
 
@@ -151,19 +164,26 @@ Two-photon imaging data<br>
 </td>
 
 <td>
-Calcium dynamics<br>
-Cell migration
+Dendritic spines
+<hr>
+Neutrophil migration
+<hr>
+Zebrafish calcium dynamics
 </td>
 
 <td>
-0.155 μm/pixel<br>
-0.349 μm/pixel<br>
+0.155 μm/pixel
+<hr>
+0.349 μm/pixel
+<hr>
 0.254 μm/pixel
 </td>
 
 <td>
-30 Hz<br>
-10 Hz<br>
+30 Hz
+<hr>
+10 Hz
+<hr>
 15 Hz
 </td>
 
@@ -181,6 +201,9 @@ Dendritic spines, neuropil, neutrophils, and zebrafish recordings
 
 </tr>
 
+
 </tbody>
+
 </table>
+
 </div>
