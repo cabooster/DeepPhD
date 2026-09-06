@@ -134,13 +134,13 @@ By default, training runs on GPUs 0 and 1. To use different GPUs, specify them w
 
 | Argument | Description |
 |----------|-------------|
-| `--exp_dir` | Experiment name; logs and checkpoints are saved under `results/<exp_dir>/` |
-| `--datasets_path` | Directory containing input `.tif` stacks |
-| `--noise_model` | The appropriate noise model that matches how your data were acquired. e.g. `fpn\|rn\|mpgn`, `fpn\|mpgn`, or `mpgn` (default: `fpn\|rn\|mpgn`) |
-| `--gpu` | Comma-separated GPU IDs (default: `0,1`) |
-| `--fresh_start` | Remove the existing experiment directory and restart training from scratch |
-| `--save_noise` | During the final validation pass, save the learned FPN and estimated RN maps |
-| `--seed` | Random seed (default: `0`) |
+| `--exp_dir` | Output root directory. Logs and checkpoints are saved under `results/<exp_dir>/`. |
+| `--datasets_path` | Directory containing input `.tif` stacks. |
+| `--noise_model` | Noise configuration that best matches your data. e.g., `fpn\|rn\|mpgn`, `fpn\|mpgn`, or `mpgn` (default: `fpn\|rn\|mpgn`). |
+| `--gpu` | Comma-separated GPU IDs (default: `0,1`). |
+| `--fresh_start` | Remove the existing output root directory and restart training from scratch. |
+| `--save_noise` | During the final validation pass, save the learned FPN and RN patterns. |
+| `--seed` | Random seed (default: `0`). |
 
 **Models (training checkpoints)** are saved as:
 
@@ -162,12 +162,12 @@ python DeepPhD_inference.py \
 
 | Argument | Description |
 |----------|-------------|
-| `--exp_dir` | Experiment name or absolute path to the training output directory |
-| `--epoch` | Checkpoint epoch to load (default: latest) |
-| `--noise_model` | Must match the noise model used during training |
-| `--datasets_path` | Directory of TIFF stacks to denoise |
-| `--gpu` | Comma-separated GPU IDs (default: `0,1`) |
-| `--save_noise` | Export estimated RN and learned FPN maps |
+| `--exp_dir` | Output root directory. |
+| `--epoch` | Checkpoint epoch to load (default: the latest one). |
+| `--noise_model` | Noise configuration for inference. Must match the noise model used during training. |
+| `--datasets_path` | Directory of TIFF stacks to denoise. |
+| `--gpu` | Comma-separated GPU IDs (default: `0,1`). |
+| `--save_noise` | Export estimated RN and learned FPN maps. |
 
 
 ## Results
