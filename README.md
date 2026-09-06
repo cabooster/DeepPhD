@@ -104,7 +104,7 @@ Each TIFF should have shape `T × H × W` (frames × height × width). Stacks wi
 Considering the noise sources in fluorescence imaging, the overall noise model can be formulated as an additive combination of mixed Poisson–Gaussian noise (MPGN), fixed-pattern noise (FPN), and row noise (RN):
 
 | Noise component | Description |
-|:-----------:|--------|
+|:-----------------:|--------|
 | **MPGN** | Photon shot noise (Poisson noise), dark noise (Gaussian noise), readout noise(Gaussian noise). |
 | **FPN** | Pixel-wise nonuniformity, modeled as a time-invariant 2D pattern. |
 | **RN** | Row-wise nonuniformity, modeled as time-varying stripe noise, with all pixels in each row sharing the same value. |
