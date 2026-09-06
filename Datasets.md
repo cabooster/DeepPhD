@@ -33,11 +33,13 @@ We recommend using ImageJ/Fiji to open and view these files.
 </tr>
 </thead>
 
-
 <tbody>
 
 
-<tr>
+<!-- Dataset 1 -->
+
+<tr class="dataset-group-odd">
+
 <td rowspan="1">1</td>
 
 <td rowspan="1">
@@ -72,8 +74,10 @@ GT and multiple noise configurations
 </tr>
 
 
+<!-- Dataset 2 -->
 
-<tr>
+<tr class="dataset-group-even">
+
 <td rowspan="2">2</td>
 
 <td rowspan="2">
@@ -85,8 +89,10 @@ GABAergic neuron population<br>
 Neuronal structure
 </td>
 
-<td>
+<td rowspan="2">
 1.29 μm/pixel
+<br>
+0.16 μm/pixel
 </td>
 
 <td>
@@ -107,14 +113,11 @@ Neuronal structure and calcium imaging
 
 </tr>
 
-<tr>
+
+<tr class="dataset-group-even">
 
 <td>
 Calcium dynamics
-</td>
-
-<td>
-0.16 μm/pixel
 </td>
 
 <td>
@@ -125,7 +128,10 @@ Calcium dynamics
 
 
 
-<tr>
+<!-- Dataset 3 -->
+
+<tr class="dataset-group-odd">
+
 <td rowspan="2">3</td>
 
 <td rowspan="2">
@@ -159,7 +165,8 @@ Simultaneous neural and behavioral recordings
 
 </tr>
 
-<tr>
+
+<tr class="dataset-group-odd">
 
 <td>
 Behavior
@@ -173,7 +180,10 @@ Behavior
 
 
 
-<tr>
+<!-- Dataset 4 -->
+
+<tr class="dataset-group-even">
+
 <td rowspan="3">4</td>
 
 <td rowspan="3">
@@ -185,8 +195,12 @@ Two-photon imaging data<br>
 Dendritic spines
 </td>
 
-<td>
+<td rowspan="3">
 0.155 μm/pixel
+<br>
+0.349 μm/pixel
+<br>
+0.254 μm/pixel
 </td>
 
 <td>
@@ -207,14 +221,11 @@ Dendritic spines, neuropil, neutrophils, and zebrafish recordings
 
 </tr>
 
-<tr>
+
+<tr class="dataset-group-even">
 
 <td>
 Neutrophil migration
-</td>
-
-<td>
-0.349 μm/pixel
 </td>
 
 <td>
@@ -223,14 +234,11 @@ Neutrophil migration
 
 </tr>
 
-<tr>
+
+<tr class="dataset-group-even">
 
 <td>
 Zebrafish calcium dynamics
-</td>
-
-<td>
-0.254 μm/pixel
 </td>
 
 <td>
