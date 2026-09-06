@@ -162,7 +162,7 @@ python DeepPhD_inference.py \
 |----------|-------------|
 | `--exp_dir` | Output root directory. |
 | `--epoch` | Determine which checkpoint to load (default: the latest epoch). |
-| `--noise_model` | Noise configuration for inference. Must match the noise configuration used during training. |
+| `--noise_model` | Noise configuration for inference. Must match the noise configuration used for training. |
 | `--datasets_path` | Directory of TIFF stacks to denoise. |
 | `--gpu` | Comma-separated GPU IDs (default: `0,1`). |
 | `--save_noise` | Export estimated RN and learned FPN maps. |
