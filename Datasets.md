@@ -38,9 +38,9 @@ We recommend using ImageJ/Fiji to open and view these files.
 
 
 <tr>
-<td>1</td>
+<td rowspan="1">1</td>
 
-<td>
+<td rowspan="1">
 Synthetic volumetric HeLa cell imaging data<br>
 <a href="https://doi.org/10.5281/zenodo.22190964">DOI</a>
 </td>
@@ -74,41 +74,51 @@ GT and multiple noise configurations
 
 
 <tr>
-<td>2</td>
+<td rowspan="2">2</td>
 
-<td>
+<td rowspan="2">
 GABAergic neuron population<br>
 <a href="https://doi.org/10.5281/zenodo.22303611">DOI</a>
 </td>
 
 <td>
 Neuronal structure
-<hr>
-Calcium dynamics
 </td>
 
 <td>
 1.29 μm/pixel
-<hr>
-0.16 μm/pixel
 </td>
 
 <td>
 --
-<hr>
-5 Hz
 </td>
 
-<td>
+<td rowspan="2">
 546 μm
 </td>
 
-<td>
+<td rowspan="2">
 4.9 GB
 </td>
 
-<td>
+<td rowspan="2">
 Neuronal structure and calcium imaging
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Calcium dynamics
+</td>
+
+<td>
+0.16 μm/pixel
+</td>
+
+<td>
+5 Hz
 </td>
 
 </tr>
@@ -116,39 +126,47 @@ Neuronal structure and calcium imaging
 
 
 <tr>
-<td>3</td>
+<td rowspan="2">3</td>
 
-<td>
+<td rowspan="2">
 Neuroethological recordings of freely behaving mice<br>
 <a href="https://doi.org/10.5281/zenodo.22346430">DOI</a>
 </td>
 
 <td>
 Neural activity
-<hr>
-Behavior
 </td>
 
-<td>
+<td rowspan="2">
 4 μm/pixel
 </td>
 
 <td>
 30 Hz
-<hr>
-9 Hz
 </td>
 
-<td>
+<td rowspan="2">
 --
 </td>
 
-<td>
+<td rowspan="2">
 864.6 MB
 </td>
 
-<td>
+<td rowspan="2">
 Simultaneous neural and behavioral recordings
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Behavior
+</td>
+
+<td>
+9 Hz
 </td>
 
 </tr>
@@ -156,47 +174,67 @@ Simultaneous neural and behavioral recordings
 
 
 <tr>
-<td>4</td>
+<td rowspan="3">4</td>
 
-<td>
+<td rowspan="3">
 Two-photon imaging data<br>
 <a href="https://doi.org/10.5281/zenodo.22348557">DOI</a>
 </td>
 
 <td>
 Dendritic spines
-<hr>
-Neutrophil migration
-<hr>
-Zebrafish calcium dynamics
 </td>
 
 <td>
 0.155 μm/pixel
-<hr>
-0.349 μm/pixel
-<hr>
-0.254 μm/pixel
 </td>
 
 <td>
 30 Hz
-<hr>
-10 Hz
-<hr>
-15 Hz
 </td>
 
-<td>
+<td rowspan="3">
 20–60 μm
 </td>
 
-<td>
+<td rowspan="3">
 12.8 GB
 </td>
 
-<td>
+<td rowspan="3">
 Dendritic spines, neuropil, neutrophils, and zebrafish recordings
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Neutrophil migration
+</td>
+
+<td>
+0.349 μm/pixel
+</td>
+
+<td>
+10 Hz
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Zebrafish calcium dynamics
+</td>
+
+<td>
+0.254 μm/pixel
+</td>
+
+<td>
+15 Hz
 </td>
 
 </tr>
