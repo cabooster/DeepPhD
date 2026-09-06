@@ -7,7 +7,7 @@ All data used for training and validation of DeepPhD are made publicly available
 
 ## Download links
 
-| No. | Title | Events | Pixel size | Frame/volume rate | Imaging Depth<sup>*</sup> | Data size | Comments |
+| No. | Title | Events | Pixel size | Frame / volume rate | Imaging Depth<sup>*</sup> | Data size | Comments |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | <center> Synthetic volumetric HeLa cell imaging data <a href="https://doi.org/10.5281/zenodo.22190964"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22190964.svg" alt="DOI"></a></center> | Subcellular structures | 0.032 μm/pxl | -- | 0–4.096 μm (0.008 μm/plane) | 7.9 GB | Low-SNR / GT |
 | 2 | <center> GABAergic neuron population <a href="https://doi.org/10.5281/zenodo.22303611"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22303611.svg" alt="DOI"></a></center> | Neuronal structure | 1.29 μm/pxl | -- | 0–546 μm (1.50 μm/plane) | 4.9 GB | Low-SNR / high-SNR |
