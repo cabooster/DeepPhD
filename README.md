@@ -54,14 +54,14 @@ DeepPhD/
 
 ## Installation
 
-### System requirement
+### 🖥️ System requirement
 
 - Linux (recommended)
 - Python **3.10**
 - NVIDIA GPU with CUDA **12.x**
 - A recent **PyTorch** build compatible with your GPU (select the matching CUDA wheel on [pytorch.org](https://pytorch.org/get-started/locally/))
 
-### Environment configuration
+### ⚙️ Environment configuration
 
 ```bash
 git clone https://github.com/cabooster/DeepPhD.git
@@ -83,7 +83,7 @@ Install the other dependencies:
 pip install -r requirements.txt
 ```
 
-### Data format
+### 📁 Data format
 
 Organize input image stacks as multi-page **TIFF** stacks (`.tif`) in a single folder, for example:
 
