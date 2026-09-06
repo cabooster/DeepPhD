@@ -54,7 +54,7 @@ DeepPhD/
 
 ## Installation
 
-### System environment
+### System requirement
 
 - Linux (recommended)
 - Python **3.10**
