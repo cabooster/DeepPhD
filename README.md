@@ -102,7 +102,7 @@ Considering the dominant noise sources in fluorescence imaging, the overall nois
 
 | Noise component | Description |
 |-----------|--------|
-| **MPGN** | Photon shot noise (Poisson), dark noise (Gaussian), readout noise(Gaussian). |
+| **MPGN** | Photon shot noise (Poisson noise), dark noise (Gaussian noise), readout noise(Gaussian noise). |
 | **FPN** | Pixel-wise nonuniformity, modeled as a time-invariant 2D pattern. |
 | **RN** | Row-wise nonuniformity, modeled as time-varying stripe noise, with all pixels in each row sharing the same value.. |
 
