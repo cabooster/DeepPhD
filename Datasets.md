@@ -7,11 +7,13 @@ title: Datasets
 <!-- PAPER_URL_PLACEHOLDER: replace with the final paper URL after publication. -->
 
 <p>
-All data used for training and validation of DeepCAD-RT are made publicly available here.
+All data used for training and validation of DeepPhD are made publicly available here.
 The released datasets include synthetic volumetric fluorescence imaging data and
 experimentally acquired light-sheet, widefield, and two-photon microscopy datasets
-covering subcellular structures, neuronal structures and activity, calcium dynamics, and cell migration. 
-All data are listed in the table below and we have no restriction on data availability. You can download these data by clicking the DOI hyperlinks appended in the ‘Title’ column. We recommend using ImageJ/Fiji to open and view these files.
+covering subcellular structures, neuronal structures, calcium dynamics, and cell migration.
+All data are listed in the table below and we have no restriction on data availability.
+You can download these data by clicking the DOI hyperlinks appended in the ‘Title’ column.
+We recommend using ImageJ/Fiji to open and view these files.
 </p>
 
 <div class="table-scroll" role="region" aria-label="DeepPhD datasets" tabindex="0">
@@ -52,7 +54,7 @@ Subcellular structures
 </td>
 
 <td>
-512 z-slices
+4.096 μm
 </td>
 
 <td>
@@ -60,7 +62,7 @@ Subcellular structures
 </td>
 
 <td>
-GT and multiple MPGN/FPN/RN noise configurations
+GT and multiple noise configurations
 </td>
 
 </tr>
@@ -75,17 +77,17 @@ GABAergic neuron population<br>
 </td>
 
 <td>
-Neuronal structure;<br>
+Neuronal structure<br>
 Calcium dynamics
 </td>
 
 <td>
-Structure: 1.29 μm/pixel;<br>
-Calcium: 0.16 μm/pixel
+1.29 μm<br>
+0.16 μm
 </td>
 
 <td>
-Calcium: 5 Hz
+5 Hz
 </td>
 
 <td>
@@ -97,7 +99,7 @@ Calcium: 5 Hz
 </td>
 
 <td>
-Structure and calcium imaging data
+Neuronal structure and calcium imaging
 </td>
 
 </tr>
@@ -112,17 +114,17 @@ Neuroethological recordings of freely behaving mice<br>
 </td>
 
 <td>
-Neural activity;<br>
+Neural activity<br>
 Behavior
 </td>
 
 <td>
---
+4 μm
 </td>
 
 <td>
-Neural imaging: 30 Hz;<br>
-Behavioral imaging: 9 Hz
+30 Hz<br>
+9 Hz
 </td>
 
 <td>
@@ -134,7 +136,7 @@ Behavioral imaging: 9 Hz
 </td>
 
 <td>
-Synchronized neural and behavioral recordings
+Simultaneous neural and behavioral recordings
 </td>
 
 </tr>
@@ -149,22 +151,24 @@ Two-photon imaging data<br>
 </td>
 
 <td>
-Calcium dynamics;<br>
+Calcium dynamics<br>
 Cell migration
 </td>
 
 <td>
---
+0.155 μm/pixel<br>
+0.349 μm/pixel<br>
+0.254 μm/pixel
 </td>
 
 <td>
-Dendritic spines: ~30 Hz;<br>
-Neutrophils: 10 Hz;<br>
-Zebrafish: ~15 Hz
+30 Hz<br>
+10 Hz<br>
+15 Hz
 </td>
 
 <td>
-Dendritic spines: 20–60 μm
+20–60 μm
 </td>
 
 <td>
