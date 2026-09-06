@@ -9,8 +9,7 @@ title: Datasets
 <p>
 All data used for training and validation of DeepPhD are made publicly available here.
 The released datasets include synthetic volumetric fluorescence imaging data and
-experimentally acquired light-sheet, widefield, and two-photon microscopy datasets
-covering subcellular structures, neuronal structures, calcium dynamics, and cell migration.
+experimentally acquired light-sheet, widefield, and two-photon microscopy datasets.
 All data are listed in the table below and we have no restriction on data availability.
 You can download these data by clicking the DOI hyperlinks appended in the ‘Title’ column.
 We recommend using ImageJ/Fiji to open and view these files.
@@ -36,13 +35,11 @@ We recommend using ImageJ/Fiji to open and view these files.
 <tbody>
 
 
-<!-- Dataset 1 -->
+<tr>
 
-<tr class="dataset-group-odd">
+<td>1</td>
 
-<td rowspan="1">1</td>
-
-<td rowspan="1">
+<td>
 Synthetic volumetric HeLa cell imaging data<br>
 <a href="https://doi.org/10.5281/zenodo.22190964">DOI</a>
 </td>
@@ -68,15 +65,14 @@ Subcellular structures
 </td>
 
 <td>
-GT and multiple noise configurations
+Low-SNR/high-SNR
 </td>
 
 </tr>
 
 
-<!-- Dataset 2 -->
 
-<tr class="dataset-group-even">
+<tr>
 
 <td rowspan="2">2</td>
 
@@ -90,8 +86,7 @@ Neuronal structure
 </td>
 
 <td rowspan="2">
-1.29 μm/pixel
-<br>
+1.29 μm/pixel<br>
 0.16 μm/pixel
 </td>
 
@@ -108,13 +103,13 @@ Neuronal structure
 </td>
 
 <td rowspan="2">
-Neuronal structure and calcium imaging
+Low-SNR/high-SNR
 </td>
 
 </tr>
 
 
-<tr class="dataset-group-even">
+<tr>
 
 <td>
 Calcium dynamics
@@ -128,9 +123,7 @@ Calcium dynamics
 
 
 
-<!-- Dataset 3 -->
-
-<tr class="dataset-group-odd">
+<tr>
 
 <td rowspan="2">3</td>
 
@@ -160,13 +153,13 @@ Neural activity
 </td>
 
 <td rowspan="2">
-Simultaneous neural and behavioral recordings
+Low-SNR/high-SNR
 </td>
 
 </tr>
 
 
-<tr class="dataset-group-odd">
+<tr>
 
 <td>
 Behavior
@@ -180,9 +173,7 @@ Behavior
 
 
 
-<!-- Dataset 4 -->
-
-<tr class="dataset-group-even">
+<tr>
 
 <td rowspan="3">4</td>
 
@@ -196,10 +187,8 @@ Dendritic spines
 </td>
 
 <td rowspan="3">
-0.155 μm/pixel
-<br>
-0.349 μm/pixel
-<br>
+0.155 μm/pixel<br>
+0.349 μm/pixel<br>
 0.254 μm/pixel
 </td>
 
@@ -216,13 +205,13 @@ Dendritic spines
 </td>
 
 <td rowspan="3">
-Dendritic spines, neuropil, neutrophils, and zebrafish recordings
+Low-SNR/high-SNR
 </td>
 
 </tr>
 
 
-<tr class="dataset-group-even">
+<tr>
 
 <td>
 Neutrophil migration
@@ -235,7 +224,7 @@ Neutrophil migration
 </tr>
 
 
-<tr class="dataset-group-even">
+<tr>
 
 <td>
 Zebrafish calcium dynamics
