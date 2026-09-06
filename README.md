@@ -95,7 +95,7 @@ your_dataset/
 
 After being loaded by the Python code, each TIFF should have a shape of `T × H × W` (frames × height × width). Stacks with fewer than 400 frames are automatically extended by reflection padding to meet the minimum length required for training.
 
-**All stacks in the same directory must come from the same imaging device (sensor),** so that shared physical noise parameters (e.g., the FPN pattern and MPGN gain/variance) stay consistent within a single training or inference run. Do not combine data from different cameras or microscopes in one folder.
+**All stacks in the same data folder must come from the same imaging device (sensor),** so that the noise parameters stay consistent within a single training or inference run.
 
 ## Quick start
 
