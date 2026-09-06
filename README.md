@@ -144,13 +144,13 @@ Key arguments:
 | `--save_noise` | During the final validation pass, save the learned FPN and estimated RN maps |
 | `--seed` | Random seed (default: `0`) |
 
-Checkpoints are saved as:
+**Models (training checkpoints)** are saved as:
 
 ```text
 results/<exp_dir>/saved_models/epoch_<N>.pth
 ```
 
-Denoising results (and optional noise maps) are saved under `results/<exp_dir>/`.
+**Denoising results** (and optional noise maps) are saved under `results/<exp_dir>/`.
 
 ### 3. Inference
 
