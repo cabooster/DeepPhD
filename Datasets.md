@@ -17,7 +17,7 @@ We recommend using ImageJ/Fiji to open and view these files.
 
 <div class="table-scroll" role="region" aria-label="DeepPhD datasets" tabindex="0">
 
-<table>
+<table class="dataset-table">
 
 <thead>
 <tr>
@@ -32,10 +32,11 @@ We recommend using ImageJ/Fiji to open and view these files.
 </tr>
 </thead>
 
+
 <tbody>
 
 
-<tr>
+<tr class="dataset-group-odd">
 
 <td>1</td>
 
@@ -49,7 +50,7 @@ Subcellular structures
 </td>
 
 <td>
-0.032 μm/pixel
+0.032 μm/px
 </td>
 
 <td>
@@ -72,7 +73,7 @@ Low-SNR/high-SNR
 
 
 
-<tr>
+<tr class="dataset-group-even">
 
 <td rowspan="2">2</td>
 
@@ -86,8 +87,7 @@ Neuronal structure
 </td>
 
 <td rowspan="2">
-1.29 μm/pixel<br>
-0.16 μm/pixel
+1.29 μm/px, 0.16 μm/px
 </td>
 
 <td>
@@ -109,7 +109,7 @@ Low-SNR/high-SNR
 </tr>
 
 
-<tr>
+<tr class="dataset-group-even">
 
 <td>
 Calcium dynamics
@@ -123,7 +123,7 @@ Calcium dynamics
 
 
 
-<tr>
+<tr class="dataset-group-odd">
 
 <td rowspan="2">3</td>
 
@@ -137,7 +137,7 @@ Neural activity
 </td>
 
 <td rowspan="2">
-4 μm/pixel
+4 μm/px
 </td>
 
 <td>
@@ -159,7 +159,7 @@ Low-SNR/high-SNR
 </tr>
 
 
-<tr>
+<tr class="dataset-group-odd">
 
 <td>
 Behavior
@@ -173,7 +173,7 @@ Behavior
 
 
 
-<tr>
+<tr class="dataset-group-even">
 
 <td rowspan="3">4</td>
 
@@ -187,9 +187,7 @@ Dendritic spines
 </td>
 
 <td rowspan="3">
-0.155 μm/pixel<br>
-0.349 μm/pixel<br>
-0.254 μm/pixel
+0.155 μm/px, 0.349 μm/px, 0.254 μm/px
 </td>
 
 <td>
@@ -211,7 +209,7 @@ Low-SNR/high-SNR
 </tr>
 
 
-<tr>
+<tr class="dataset-group-even">
 
 <td>
 Neutrophil migration
@@ -224,7 +222,7 @@ Neutrophil migration
 </tr>
 
 
-<tr>
+<tr class="dataset-group-even">
 
 <td>
 Zebrafish calcium dynamics
