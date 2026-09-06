@@ -130,9 +130,7 @@ python DeepPhD_train.py \
   --save_noise
 ```
 
-By default, training runs on GPUs 0 and 1. To use different devices, pass `--gpu` (e.g., `--gpu 0` or `--gpu 0,1,2`).
-
-Key arguments:
+By default, training runs on GPUs 0 and 1. To use different GPUs, specify them with `--gpu` (e.g., `--gpu 0` or `--gpu 0,1,2`). Other key arguments are listed below:
 
 | Argument | Description |
 |----------|-------------|
