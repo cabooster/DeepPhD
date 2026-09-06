@@ -5,9 +5,9 @@
 ## Contents
 
 - [Overview](#overview)
-- [Repository Layout](#repository-layout)
+- [Repository structure](#repository-structure)
 - [Installation](#installation)
-- [Quick Start](#quick-start)
+- [Quick start](#quick-start)
 - [Results](#results)
 
 
@@ -29,7 +29,7 @@ We demonstrate the superiority of DeepPhD on various imaging modalities and biol
 
 
 <details>
-<summary><h2>Repository Layout</h2></summary>
+<summary><h2>Repository structure</h2></summary>
 
 ```text
 DeepPhD/
@@ -94,7 +94,7 @@ Each TIFF should have shape `T × H × W` (time or depth × height × width). St
 
 **All stacks in the same directory must come from the same imaging device (sensor),** so that shared physical noise parameters (e.g., the FPN pattern and MPGN gain/variance) stay consistent within a single training or inference run. Do not combine data from different cameras or microscopes in one folder.
 
-## Quick Start
+## Quick start
 
 ### 1. Noise model
 
