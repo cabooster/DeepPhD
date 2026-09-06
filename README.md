@@ -150,7 +150,7 @@ Checkpoints are saved to:
 results/<exp_dir>/saved_models/epoch_<N>.pth
 ```
 
-Denoised outputs (and optional noise maps) are saved under `results/<exp_dir>/`.
+Denoising results (and optional noise maps) are saved under `results/<exp_dir>/`.
 
 ### 3. Inference
 
