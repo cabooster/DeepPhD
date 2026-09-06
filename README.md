@@ -109,7 +109,7 @@ Considering the noise sources in fluorescence imaging, the overall noise model c
 | **FPN** | Pixel-wise nonuniformity, modeled as a time-invariant 2D pattern. |
 | **RN** | Row-wise nonuniformity, modeled as time-varying stripe noise, with all pixels in each row sharing the same value. |
 
-Please choose the best noise configuration that matches your data. The table below lists our recommendations:
+Choose the noise configuration that best matches your data. The table below lists our recommendations:
 
 | Detector | Typical modalities | Recommended `--noise_model` |
 |------------------|--------------------|:-----------------------------:|
@@ -144,7 +144,7 @@ Key arguments:
 | `--save_noise` | During the final validation pass, save the learned FPN and estimated RN maps |
 | `--seed` | Random seed (default: `0`) |
 
-Checkpoints are saved to:
+Checkpoints are saved as:
 
 ```text
 results/<exp_dir>/saved_models/epoch_<N>.pth
