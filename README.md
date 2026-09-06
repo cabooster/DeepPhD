@@ -174,15 +174,15 @@ python DeepPhD_inference.py \
 
 ## Results
 
-1. **Ultrasensitive light-sheet imaging of GABAergic neurons in larval zebrafish with DeepPhD.**
+**1. Ultrasensitive light-sheet imaging of GABAergic neurons in larval zebrafish with DeepPhD.**
 
 [![Light-sheet imaging of GABAergic neurons in larval zebrafish](./images/supv2.png)](https://youtu.be/9wG65MiFMAs)
 
-2. **High-fidelity neural recordings from freely behaving mice with head-mounted miniaturized microscopy.**
+**2. High-fidelity neural recordings from freely behaving mice with head-mounted miniaturized microscopy.**
 
 [![Neural recording in freely behaving mice](./images/supv3.png)](https://youtu.be/Yn_954OcvZI)
 
-3. **Calcium transients in dendritic spines revealed in the mouse cortex.**
+**3. Calcium transients in dendritic spines revealed in the mouse cortex.**
 
 [![Calcium transients in dendritic spines](./images/supv4.png)](https://youtu.be/1bM43gqU6ik)
 
