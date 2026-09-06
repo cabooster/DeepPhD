@@ -118,8 +118,6 @@ Choose the noise configuration that best matches your data. The table below list
 | Photomultiplier tube (PMT) | Two-photon microscopy, three-photon microscopy, *etc.* | `mpgn` |
 
 
-
-
 ### 2. Training
 
 ```bash
@@ -139,7 +137,7 @@ By default, training runs on GPUs 0 and 1. To use different GPUs, specify them w
 | `--noise_model` | Noise configuration that best matches your data. e.g., `fpn\|rn\|mpgn`, `fpn\|mpgn`, or `mpgn` (default: `fpn\|rn\|mpgn`). |
 | `--gpu` | Comma-separated GPU IDs (default: `0,1`). |
 | `--fresh_start` | Restart training from scratch. |
-| `--save_noise` | During the final validation pass, save the learned FPN and RN patterns. |
+| `--save_noise` | Save the learned FPN and RN patterns. |
 | `--seed` | Random seed (default: `0`). |
 
 **Models (training checkpoints)** are saved as:
