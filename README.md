@@ -70,7 +70,7 @@ conda create -n deepphd python=3.10 -y
 conda activate deepphd
 ```
 
-Install PyTorch first, matched to your CUDA version and GPU. Use the selector on [pytorch.org](https://pytorch.org/get-started/locally/) to choose a build compatible with your driver and hardware (newer GPUs such as the RTX 5090 require a recent build with the appropriate architecture support). Example for CUDA 12.8:
+Install a PyTorch version that is compatible with your CUDA version and GPU. Use the selector on [pytorch.org](https://pytorch.org/get-started/locally/) to choose a version compatible with your driver and hardware. Newer GPUs, such as the RTX 5090, need a recent PyTorch version to work properly. Example for CUDA 12.8:
 
 ```bash
 pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 \
