@@ -1,6 +1,6 @@
 title:               DeepPhD
-url:                 https://zzzzzxr-png.github.io
-baseurl:             "/DeepPhD-page"
+url:                 https://cabooster.github.io
+baseurl:             "/DeepPhD"
 markdown:            kramdown
 highlighter:         rouge
 
@@ -36,7 +36,7 @@ sass:
 
 author:
   name:              DeepPhD
-  url:               https://zzzzzxr-png.github.io/DeepPhD-page
+  url:               https://cabooster.github.io/DeepPhD
   email:
 
 plugins:
