@@ -87,6 +87,19 @@
   margin-right: auto;
 }
 
+#contributions .contribution-link-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+#contributions .contribution-link-row .arrow-link {
+  width: 12.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .arrow-link {
   display: inline-flex;
   align-items: center;
