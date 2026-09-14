@@ -114,6 +114,64 @@ title: Home
   </div>
 </section>
 
+<section class="home-section" id="contributions">
+  <h2>Key contributions</h2>
+
+  <ol class="innovations">
+    <li>
+      <strong>Comprehensive noise modeling and self-supervised parameter learning.</strong>
+      DeepPhD is grounded in a comprehensive physical dissection of image degradation.
+      We designed a normalizing flow backbone that learns two reciprocal transformations
+      to implement explicit noise modeling and parameter learning. Heterogeneous noise
+      components can be automatically learned from raw noisy data, providing a solid
+      noise model for denoising.
+      <div>
+        {% include arrow-link.html href="#noise-modeling" text="Learn more" %}
+      </div>
+    </li>
+
+    <li>
+      <strong>Physics-informed noise decoupling and image restoration.</strong>
+      By informing the image restoration module of the exact noise model, DeepPhD
+      accurately decouples and removes heterogeneous noise components, including
+      fixed-pattern noise (FPN), row noise (RN), and mixed Poisson–Gaussian noise (MPGN).
+      Fluorescence signals can be recovered from severe noise with enhanced performance
+      and reliability.
+      <div>
+        {% include arrow-link.html href="#image-restoration" text="Learn more" %}
+      </div>
+    </li>
+
+    <li>
+      <strong>State-of-the-art performance and advanced biological applications.</strong>
+      DeepPhD achieves state-of-the-art denoising performance on different noise
+      configurations and noise levels with superior physical fidelity. We demonstrated
+      the capability of DeepPhD on various imaging modalities and experimental scenarios,
+      including light-sheet imaging of larval zebrafish, neural recording of freely
+      behaving mice, and multiphoton imaging of immune cell migration. Extensive
+      qualitative and quantitative evaluations demonstrate that DeepPhD can extend the
+      performance and interpretability of fluorescence image denoising.
+      <div>
+        {% include arrow-link.html href="#denoising" text="View denoising performance" %}
+        {% include arrow-link.html href="#applications" text="View biological applications" %}
+      </div>
+    </li>
+
+    <li>
+      <strong>Code and datasets.</strong>
+      We provide a companion webpage for DeepPhD and relevant resources. All source code
+      and data (~300 GB, including simulated datasets, experimentally obtained images of
+      light-sheet microscopy, head-mounted miniaturized microscopy, and multiphoton
+      microscopy) are being made publicly available to the community to facilitate
+      relevant research.
+      <div>
+        {% include arrow-link.html href="https://github.com/cabooster/DeepPhD" text="View source code" %}
+        {% include arrow-link.html href="/Datasets/" text="View datasets" %}
+      </div>
+    </li>
+  </ol>
+</section>
+
 <section class="home-section" id="physical-principle">
   <h2>Physics-informed principle</h2>
 
@@ -126,7 +184,7 @@ title: Home
 
   <!-- SOURCE: Fig. 1a–b. -->
   <img src="{{ site.baseurl }}/images/deepphd_fig1_ab.png" class="section-figure" alt="Physical imaging process and noise composition">
-
+  <img id="noise-modeling" src="{{ site.baseurl }}/images/deepphd_fig1_ab.png" class="section-figure" alt="Physical imaging process and noise composition">
   <details class="caption-more">
     <summary>More information</summary>
     <!-- SOURCE: manuscript Introduction. -->
@@ -134,8 +192,7 @@ title: Home
   </details>
 
   <!-- SOURCE: Fig. 1c. Concise framework preview. -->
-  <img src="{{ site.baseurl }}/images/deepphd_fig1_c.png" class="section-figure" alt="DeepPhD framework: image restoration and physical modeling">
-
+  <img id="image-restoration" src="{{ site.baseurl }}/images/deepphd_fig1_c.png" class="section-figure" alt="DeepPhD framework: image restoration and physical modeling">
   <details class="caption-more">
     <summary>More information</summary>
     <!-- SOURCE: Methods workflow detail; light web adaptation for first mention of the module. -->
