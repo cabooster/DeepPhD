@@ -7,7 +7,7 @@ All source data used in this study are made publicly available here. The release
 
 ## Download links
 
-| No. | Sample | Events | Imaging modality | Pixel size | Frame rate | Imaging depth | Data size | Comments |
+| No. | Sample | Events | Imaging mode | Pixel size | Frame rate | Imaging depth | Data size | Comments |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | <center>Synthetic HeLa cells <a href="https://doi.org/10.5281/zenodo.22190964"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22190964.svg" alt="DOI"></a></center> | Subcellular structures | Confocal microscopy | 0.032 μm/pxl | -- | 0–4.096 μm (0.008 μm/plane) | 7.9 GB | Low-SNR / GT |
 | 2 | <center>Zebrafish GABAergic neurons <a href="https://doi.org/10.5281/zenodo.22303611"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22303611.svg" alt="DOI"></a></center> | Neuronal structures | Light-sheet microscopy | 1.290 μm/pxl | -- | 0–546 μm (1.50 μm/plane) | 26.7 GB | Low-SNR / high-SNR |
