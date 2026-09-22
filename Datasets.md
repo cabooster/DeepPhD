@@ -7,15 +7,17 @@ All data used for training and validation of DeepPhD are made publicly available
 
 ## Download links
 
-| No. | Title | Events | Pixel size | Frame / volume rate | Imaging Depth<sup>*</sup> | Data size | Comments |
-| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| 1 | <center> Synthetic volumetric HeLa cell imaging data <a href="https://doi.org/10.5281/zenodo.22190964"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22190964.svg" alt="DOI"></a></center> | Subcellular structures | 0.032 μm/pxl | -- | 0–4.096 μm (0.008 μm/plane) | 7.9 GB | Low-SNR / GT |
-| 2 | <center> GABAergic neuron population <a href="https://doi.org/10.5281/zenodo.22303611"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22303611.svg" alt="DOI"></a></center> | Neuronal structure | 1.29 μm/pxl | -- | 0–546 μm (1.50 μm/plane) | 4.9 GB | Low-SNR / high-SNR |
-| 3 | <center> GABAergic neuron population <a href="https://doi.org/10.5281/zenodo.22303611"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22303611.svg" alt="DOI"></a></center> | Calcium transient | 0.16 μm/pxl | 5 Hz | -- | 11 GB | Low-SNR |
-| 4 | <center> Neuroethological recordings of freely behaving mice <a href="https://doi.org/10.5281/zenodo.22346430"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22346430.svg" alt="DOI"></a></center> | Neural activity | 4 μm/pxl | 30 Hz | Layer 2/3 | 692.8 MB | Low-SNR |
-| 5 | <center> Neuroethological recordings of freely behaving mice <a href="https://doi.org/10.5281/zenodo.22346430"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22346430.svg" alt="DOI"></a></center> | Behavior | -- | 9 Hz | -- | 171.8 MB | -- |
-| 6 | <center> Two-photon imaging data <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Dendritic calcium transient | 0.155 μm/pxl | 30 Hz | 20–60 μm | 6.1 GB | Low-SNR / high-SNR |
-| 7 | <center> Two-photon imaging data <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Neuropil calcium transient | 0.155 μm/pxl | 30 Hz | 20–60 μm | 2.4 GB | Low-SNR |
-| 8 | <center> Two-photon imaging data <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Neutrophil migration | 0.349 μm/pxl | 10 Hz | -- | 1,463.5 MB | Low-SNR / high-SNR |
-| 9 | <center> Two-photon imaging data <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Calcium transient | 0.254 μm/pxl | 15 Hz | -- | 2.8 GB | Low-SNR |
-| ... | <center>Additional datasets are being uploaded</center> | ... | ... | ... | ... | ... | Upload in progress |
+## Download links
+
+| No. | Sample | Events | Imaging modality | Pixel size | Frame rate | Imaging depth | Data size | Comments |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| 1 | <center>Synthetic HeLa cells <a href="https://doi.org/10.5281/zenodo.22190964"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22190964.svg" alt="DOI"></a></center> | Subcellular structures | Confocal microscopy | 0.032 μm/pxl | -- | 0–4.096 μm (0.008 μm/plane) | 7.9 GB | Low-SNR / GT |
+| 2 | <center>Zebrafish GABAergic neurons <a href="https://doi.org/10.5281/zenodo.22303611"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22303611.svg" alt="DOI"></a></center> | Neuronal structures | Light-sheet microscopy | 1.290 μm/pxl | -- | 0–546 μm (1.50 μm/plane) | 26.7 GB | Low-SNR / high-SNR |
+| 3 | <center>Zebrafish GABAergic neurons <a href="https://doi.org/10.5281/zenodo.22303611"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22303611.svg" alt="DOI"></a></center> | Calcium transient | Light-sheet microscopy | 0.160 μm/pxl | 5 Hz | -- | 92.4 GB | Low-SNR |
+| 4 | <center>Freely behaving mice <a href="https://doi.org/10.5281/zenodo.22346430"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22346430.svg" alt="DOI"></a></center> | Neural activity | Head-mounted widefield microscopy | 4.000 μm/pxl | 30 Hz | Layer 2/3 | 48.5 GB | Low-SNR |
+| 5 | <center>Freely behaving mice <a href="https://doi.org/10.5281/zenodo.22346430"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22346430.svg" alt="DOI"></a></center> | Behavior | Overhead camera | 0.400 mm/pxl | 9 Hz | -- | 0.2 GB | -- |
+| 6 | <center>Mouse dendritic spines <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Calcium transient | Two-photon microscopy | 0.155 μm/pxl | 30 Hz | 40 μm | 16.7 GB | Low-SNR / high-SNR |
+| 7 | <center>Mouse brain neuropil <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Calcium transient | Two-photon microscopy | 0.977 μm/pxl | 30 Hz | 40–180 μm | 74.9 GB | Low-SNR / high-SNR |
+| 8 | <center>Mouse brain neutrophils <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Cell migration | Two-photon microscopy | 0.349 μm/pxl | 10 Hz | 30 μm | 10.7 GB | Low-SNR / high-SNR |
+| 9 | <center>Zebrafish multiple brain regions <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Calcium transient | Two-photon microscopy | 0.873 μm/pxl | 15 Hz | -- | 10.4 GB | Low-SNR / high-SNR |
+| 10 | <center>Synthetic cortical neurons <a href="https://doi.org/10.5281/zenodo.22491197"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22491197.svg" alt="DOI"></a></center> | Calcium transient | Two-photon microscopy | 3.040 μm/pxl | 50 Hz | 200 μm | 10.5 GB | Low-SNR / GT |
