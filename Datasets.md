@@ -3,9 +3,7 @@ layout: page
 title: Datasets
 ---
 
-All data used for training and validation of DeepPhD are made publicly available here. The released datasets include synthetic volumetric fluorescence imaging data and experimentally obtained light-sheet, widefield, and two-photon microscopy datasets covering subcellular structures, neuronal activity, calcium dynamics, and cell migration. We provide **~300 GB** of data in total. **The datasets are currently being uploaded, and this page will be updated as additional data become available.** All currently available data are listed in the table below and we have no restriction on data availability. You can download these data by clicking the **`DOI hyperlinks`** appended in the 'Title' column. We recommend using **[`ImageJ/Fiji`](https://imagej.net/software/fiji/downloads)** to open and view these files.
-
-## Download links
+All source data used in this study are made publicly available here. The released datasets include synthetic volumetric fluorescence imaging data, synthetic time-lapse calcium imaging data, and experimentally acquired light-sheet, widefield, and two-photon microscopy datasets covering subcellular structures, neuronal morphology and activity, calcium dynamics, and cell migration. We provide **~300 GB** of data in total. All currently available data are listed in the table below and we have no restriction on data availability. You can download these data by clicking the **`DOI hyperlinks`** appended in the 'Sample' column. We recommend using **[`ImageJ/Fiji`](https://imagej.net/software/fiji/downloads)** to open and view these files.
 
 ## Download links
 
