@@ -5,8 +5,38 @@ title: Datasets
 
 All source data used in this study are made publicly available here. The released datasets include synthetic volumetric fluorescence imaging data, synthetic time-lapse calcium imaging data, and experimentally acquired light-sheet, widefield, and two-photon microscopy datasets covering subcellular structures, neuronal morphology and activity, calcium dynamics, and cell migration. We provide **~300 GB** of data in total. All currently available data are listed in the table below and we have no restriction on data availability. You can download these data by clicking the **`DOI hyperlinks`** appended in the 'Sample' column. We recommend using **[`ImageJ/Fiji`](https://imagej.net/software/fiji/downloads)** to open and view these files.
 
-## Download links
+<style>
+.dataset-table {
+  font-size: 13px;
+  line-height: 1.35;
+}
 
+.dataset-table table {
+  width: 100%;
+}
+
+.dataset-table th,
+.dataset-table td {
+  padding: 6px 7px;
+  vertical-align: middle;
+}
+
+.dataset-table th {
+  font-size: 13px;
+}
+
+.dataset-table th:nth-child(5),
+.dataset-table td:nth-child(5),
+.dataset-table th:nth-child(6),
+.dataset-table td:nth-child(6),
+.dataset-table th:nth-child(8),
+.dataset-table td:nth-child(8) {
+  white-space: nowrap;
+}
+</style>
+
+## Download links
+<div class="dataset-table" markdown="1">
 | No. | Sample | Events | Imaging mode | Pixel size | Frame rate | Imaging depth | Data size | Comments |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | <center>Synthetic HeLa cells <a href="https://doi.org/10.5281/zenodo.22190964"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22190964.svg" alt="DOI"></a></center> | Subcellular structures | Confocal microscopy | 0.032 μm/pxl | -- | 0–4.096 μm (0.008 μm/plane) | 7.9 GB | Low-SNR / GT |
@@ -19,3 +49,4 @@ All source data used in this study are made publicly available here. The release
 | 8 | <center>Mouse brain neutrophils <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Cell migration | Two-photon microscopy | 0.349 μm/pxl | 10 Hz | 30 μm | 10.7 GB | Low-SNR / high-SNR |
 | 9 | <center>Zebrafish multiple brain regions <a href="https://doi.org/10.5281/zenodo.22348557"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22348557.svg" alt="DOI"></a></center> | Calcium transient | Two-photon microscopy | 0.873 μm/pxl | 15 Hz | -- | 10.4 GB | Low-SNR / high-SNR |
 | 10 | <center>Synthetic cortical neurons <a href="https://doi.org/10.5281/zenodo.22491197"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22491197.svg" alt="DOI"></a></center> | Calcium transient | Two-photon microscopy | 3.040 μm/pxl | 50 Hz | 200 μm | 10.5 GB | Low-SNR / GT |
+</div>
