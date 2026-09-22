@@ -5,68 +5,6 @@ title: Datasets
 
 All source data used in this study are made publicly available here. The released datasets include synthetic volumetric fluorescence imaging data, synthetic time-lapse calcium imaging data, and experimentally acquired light-sheet, widefield, and two-photon microscopy datasets covering subcellular structures, neuronal morphology and activity, calcium dynamics, and cell migration. We provide **~300 GB** of data in total. All currently available data are listed in the table below and we have no restriction on data availability. You can download these data by clicking the **`DOI hyperlinks`** appended in the 'Sample' column. We recommend using **[`ImageJ/Fiji`](https://imagej.net/software/fiji/downloads)** to open and view these files.
 
-<style>
-#download-links + table {
-  width: 100%;
-  font-size: 13px;
-  line-height: 1.35;
-}
-
-#download-links + table th,
-#download-links + table td {
-  padding: 5px 6px;
-  vertical-align: middle;
-}
-
-#download-links + table th {
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-/* No. */
-#download-links + table th:nth-child(1),
-#download-links + table td:nth-child(1) {
-  width: 4%;
-}
-
-/* Sample */
-#download-links + table th:nth-child(2),
-#download-links + table td:nth-child(2) {
-  width: 18%;
-}
-
-/* Events */
-#download-links + table th:nth-child(3),
-#download-links + table td:nth-child(3) {
-  width: 13%;
-}
-
-/* Imaging modality */
-#download-links + table th:nth-child(4),
-#download-links + table td:nth-child(4) {
-  width: 16%;
-}
-
-/* Pixel size */
-#download-links + table th:nth-child(5),
-#download-links + table td:nth-child(5) {
-  white-space: nowrap;
-}
-
-/* Frame rate */
-#download-links + table th:nth-child(6),
-#download-links + table td:nth-child(6) {
-  white-space: nowrap;
-}
-
-/* Data size */
-#download-links + table th:nth-child(8),
-#download-links + table td:nth-child(8) {
-  white-space: nowrap;
-}
-</style>
-
-
 ## Download links
 | No. | Sample | Events | Imaging mode | Pixel size | Frame rate | Imaging depth | Data size | Comments |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
