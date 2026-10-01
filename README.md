@@ -1,4 +1,4 @@
-# DeepPhD: Physics-informed self-supervised denoising for fluorescence imaging
+# DeepPhD: Physics-informed self-supervised denoising for ultrasensitive fluorescence microscopy
 
 <p align="center">
   <img src="https://github.com/cabooster/DeepPhD/blob/master/images/Logo-with-background.jpg?raw=true" width="1000">
